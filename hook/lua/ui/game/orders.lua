@@ -219,21 +219,21 @@ function CreatePrioBorder(parent)
     
     --mid
     LayoutHelpers.AtLeftTopIn(prioBorder.topmid, prioBorder.topleft, 18, 0)
-    prioBorder.topmid.Width:Set(width - 18)
+    prioBorder.topmid.Width:Set(LayoutHelpers.ScaleNumber(width - 18))
     
     LayoutHelpers.AtLeftTopIn(prioBorder.bottommid, prioBorder.topleft, 18, height)
-    prioBorder.bottommid.Width:Set(width - 18)
+    prioBorder.bottommid.Width:Set(LayoutHelpers.ScaleNumber(width - 18))
     
     LayoutHelpers.AtLeftTopIn(prioBorder.midleft, prioBorder.topleft, 0, 18)
-    prioBorder.midleft.Height:Set(height - 18)
+    prioBorder.midleft.Height:Set(LayoutHelpers.ScaleNumber(height - 18))
     
     LayoutHelpers.AtLeftTopIn(prioBorder.midright, prioBorder.topleft, width, 18)
-    prioBorder.midright.Height:Set(height - 18)
+    prioBorder.midright.Height:Set(LayoutHelpers.ScaleNumber(height - 18))
  
     --background
     LayoutHelpers.AtLeftTopIn(prioBorder.back, prioBorder.topleft, 18 , 18)
-    prioBorder.back.Width:Set(width - 18)
-    prioBorder.back.Height:Set(height - 18)
+    prioBorder.back.Width:Set(LayoutHelpers.ScaleNumber(width - 18))
+    prioBorder.back.Height:Set(LayoutHelpers.ScaleNumber(height - 18))
     
     return prioBorder
 end
@@ -245,8 +245,8 @@ function CreatePrioButtons(parent)
     local function CreateButton(prioTable, name, exclusive)
         local btn = Checkbox(parent)
       
-        btn.Width:Set(70)
-        btn.Height:Set(20)
+        btn.Width:Set(LayoutHelpers.ScaleNumber(70))
+        btn.Height:Set(LayoutHelpers.ScaleNumber(20))
     
         if not active and name == currentPreset then
             btn:SetNewTextures(
@@ -283,8 +283,8 @@ function CreatePrioButtons(parent)
     --"Default" button
     buttons.default = Checkbox(parent)
     
-    buttons.default.Width:Set(70)
-    buttons.default.Height:Set(30)
+    buttons.default.Width:Set(LayoutHelpers.ScaleNumber(70))
+    buttons.default.Height:Set(LayoutHelpers.ScaleNumber(30))
     
     if currentPreset == "Default" then
         buttons.default:SetNewTextures(
@@ -314,8 +314,8 @@ function CreatePrioButtons(parent)
     --"Snipe" button
     buttons.snipe = Checkbox(parent)
     
-    buttons.snipe.Width:Set(70)
-    buttons.snipe.Height:Set(30)
+    buttons.snipe.Width:Set(LayoutHelpers.ScaleNumber(70))
+    buttons.snipe.Height:Set(LayoutHelpers.ScaleNumber(30))
     
     if not active and currentPreset == "Snipe" then
         buttons.snipe:SetNewTextures(
@@ -486,8 +486,8 @@ function CreateSeparateWindow()
     -----------------------------------------
     separateWindow = Bitmap(GetFrame(0), UIUtil.UIFile('/game/ability_brd/chat_brd_m.dds'))
     separateWindow.Depth:Set(backgroundDepth)
-    separateWindow.Width:Set(width)
-    separateWindow.Height:Set(height)
+    separateWindow.Width:Set(LayoutHelpers.ScaleNumber(width))
+    separateWindow.Height:Set(LayoutHelpers.ScaleNumber(height))
     if posX and posY then
         separateWindow.Left:Set(posX)
         separateWindow.Top:Set(posY)
@@ -537,22 +537,22 @@ function CreateSeparateWindow()
     
     separateWindow.topmid = Bitmap(separateWindow, UIUtil.UIFile('/game/ability_brd/chat_brd_horz_um.dds'))
     LayoutHelpers.AtLeftTopIn(separateWindow.topmid, separateWindow, 0, -18)
-    separateWindow.topmid.Width:Set(width)
+    separateWindow.topmid.Width:Set(LayoutHelpers.ScaleNumber(width))
     separateWindow.topmid.Depth:Set(backgroundDepth)
     
     separateWindow.bottommid = Bitmap(separateWindow, UIUtil.UIFile('/game/ability_brd/chat_brd_lm.dds'))
     LayoutHelpers.AtLeftTopIn(separateWindow.bottommid, separateWindow, 0, height)
-    separateWindow.bottommid.Width:Set(width)
+    separateWindow.bottommid.Width:Set(LayoutHelpers.ScaleNumber(width))
     separateWindow.bottommid.Depth:Set(backgroundDepth)
     
     separateWindow.midleft = Bitmap(separateWindow, UIUtil.UIFile('/game/ability_brd/chat_brd_vert_l.dds'))
     LayoutHelpers.AtLeftTopIn(separateWindow.midleft, separateWindow, -18, 0)
-    separateWindow.midleft.Height:Set(height)
+    separateWindow.midleft.Height:Set(LayoutHelpers.ScaleNumber(height))
     separateWindow.midleft.Depth:Set(backgroundDepth)
     
     separateWindow.midright = Bitmap(separateWindow, UIUtil.UIFile('/game/ability_brd/chat_brd_vert_r.dds'))
     LayoutHelpers.AtRightTopIn(separateWindow.midright, separateWindow, -18, 0)
-    separateWindow.midright.Height:Set(height)
+    separateWindow.midright.Height:Set(LayoutHelpers.ScaleNumber(height))
     separateWindow.midright.Depth:Set(backgroundDepth)
     
     ---------Buttons---------
@@ -566,8 +566,8 @@ function CreateSeparateWindow()
     --"Default" button
     buttons.Default = Checkbox(separateWindow)
     
-    buttons.Default.Width:Set(70)
-    buttons.Default.Height:Set(30)
+    buttons.Default.Width:Set(LayoutHelpers.ScaleNumber(70))
+    buttons.Default.Height:Set(LayoutHelpers.ScaleNumber(30))
     
     if currentPreset == "Default" then
         buttons.Default:SetNewTextures(
@@ -598,8 +598,8 @@ function CreateSeparateWindow()
     --"Snipe" button
     buttons.Snipe = Checkbox(separateWindow)
     
-    buttons.Snipe.Width:Set(70)
-    buttons.Snipe.Height:Set(30)
+    buttons.Snipe.Width:Set(LayoutHelpers.ScaleNumber(70))
+    buttons.Snipe.Height:Set(LayoutHelpers.ScaleNumber(30))
     
     if not active and currentPreset == "Snipe" then
         buttons.Snipe:SetNewTextures(
@@ -631,8 +631,8 @@ function CreateSeparateWindow()
     local function CreateButton(prioTable, name, exclusive)
         local btn = Checkbox(separateWindow)
       
-        btn.Width:Set(70)
-        btn.Height:Set(20)
+        btn.Width:Set(LayoutHelpers.ScaleNumber(70))
+        btn.Height:Set(LayoutHelpers.ScaleNumber(20))
     
         if not active and name == currentPreset then
             btn:SetNewTextures(

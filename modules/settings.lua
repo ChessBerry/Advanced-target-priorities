@@ -38,8 +38,8 @@ function CreateSettingsWindow()
     
     settingsWindow = Bitmap(GetFrame(0), UIUtil.UIFile('/mods/Advanced target priorities/textures/back.dds'))
     settingsWindow.Depth:Set(100)
-    settingsWindow.Width:Set(width)
-    settingsWindow.Height:Set(height)
+    settingsWindow.Width:Set(LayoutHelpers.ScaleNumber(width))
+    settingsWindow.Height:Set(LayoutHelpers.ScaleNumber(height))
     settingsWindow:SetAlpha(0.8)
     LayoutHelpers.AtCenterIn(settingsWindow, GetFrame(0))    
 
@@ -81,8 +81,8 @@ function CreateSettingsWindow()
     --CheckBoxWindowOn
     
     settingsWindow.CheckBoxShowWindow = UIUtil.CreateCheckbox(settingsWindow, '/CHECKBOX/')
-    settingsWindow.CheckBoxShowWindow.Height:Set(18)
-    settingsWindow.CheckBoxShowWindow.Width:Set(18)
+    settingsWindow.CheckBoxShowWindow.Height:Set(LayoutHelpers.ScaleNumber(18))
+    settingsWindow.CheckBoxShowWindow.Width:Set(LayoutHelpers.ScaleNumber(18))
   
     if prioritySettingsPrefs.showSeparateWindow == true then
         settingsWindow.CheckBoxShowWindow:SetCheck(true, true)
@@ -117,8 +117,8 @@ function CreateSettingsWindow()
     --CheckBoxLockPosition
     
     settingsWindow.CheckBoxLockWindow = UIUtil.CreateCheckbox(settingsWindow, '/CHECKBOX/')
-    settingsWindow.CheckBoxLockWindow.Height:Set(14)
-    settingsWindow.CheckBoxLockWindow.Width:Set(14)
+    settingsWindow.CheckBoxLockWindow.Height:Set(LayoutHelpers.ScaleNumber(14))
+    settingsWindow.CheckBoxLockWindow.Width:Set(LayoutHelpers.ScaleNumber(14))
   
     if prioritySettingsPrefs.lockSeparateWindow == true then
         settingsWindow.CheckBoxLockWindow:SetCheck(true, true)
@@ -160,7 +160,7 @@ function CreateSettingsWindow()
     
     while i < 7 do
         settingsWindow.dropdowns1[i] = Combo(settingsWindow, 14, 10, nil, nil)
-        settingsWindow.dropdowns1[i].Width:Set(130)
+        settingsWindow.dropdowns1[i].Width:Set(LayoutHelpers.ScaleNumber(130))
         LayoutHelpers.AtLeftTopIn(settingsWindow.dropdowns1[i], settingsWindow.CheckBoxLockWindow, 0, 150 - i * 20)
         
         settingsWindow.dropdowns1[i].Number = i 
@@ -216,7 +216,7 @@ function CreateSettingsWindow()
     
     while i < 7 do
         settingsWindow.dropdowns2[i] = Combo(settingsWindow, 14, 10, nil, nil)
-        settingsWindow.dropdowns2[i].Width:Set(130)
+        settingsWindow.dropdowns2[i].Width:Set(LayoutHelpers.ScaleNumber(130))
         LayoutHelpers.AtLeftTopIn(settingsWindow.dropdowns2[i], settingsWindow.dropdowns1[1], 150, 20 - i * 20)
         
         settingsWindow.dropdowns2[i].Number = i 
@@ -250,7 +250,7 @@ function CreateSettingsWindow()
     
     while i < 7 do
         settingsWindow.dropdowns3[i] = Combo(settingsWindow, 14, 10, nil, nil)
-        settingsWindow.dropdowns3[i].Width:Set(130)
+        settingsWindow.dropdowns3[i].Width:Set(LayoutHelpers.ScaleNumber(130))
         LayoutHelpers.AtLeftTopIn(settingsWindow.dropdowns3[i], settingsWindow.dropdowns2[1], 150, 20 - i * 20)
         
         settingsWindow.dropdowns3[i].Number = i 
@@ -278,8 +278,8 @@ function CreateSettingsWindow()
     
     ---Hide abilities---
     settingsWindow.CheckBoxHideAbilities = UIUtil.CreateCheckbox(settingsWindow, '/CHECKBOX/')
-    settingsWindow.CheckBoxHideAbilities.Height:Set(18)
-    settingsWindow.CheckBoxHideAbilities.Width:Set(18)
+    settingsWindow.CheckBoxHideAbilities.Height:Set(LayoutHelpers.ScaleNumber(18))
+    settingsWindow.CheckBoxHideAbilities.Width:Set(LayoutHelpers.ScaleNumber(18))
   
     if prioritySettingsPrefs.hideAbilities == true then
         settingsWindow.CheckBoxHideAbilities:SetCheck(true, true)
@@ -328,6 +328,6 @@ function CalculateSize()
         break
     end
 
-    prioritySettingsPrefs.windowWidth = 120 + additionalColumn * 70
-    prioritySettingsPrefs.windowHeight = 20 + i * 20   
+    prioritySettingsPrefs.windowWidth = LayoutHelpers.ScaleNumber(120 + additionalColumn * 70)
+    prioritySettingsPrefs.windowHeight = LayoutHelpers.ScaleNumber(20 + i * 20)
 end
